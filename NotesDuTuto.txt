@@ -1,0 +1,23 @@
+
+
+Une directive est une class anglar sans templage ( comme un composant)
+la class composant herite de directive.
+
+interagir avec les elements html plusieurs directive
+elle possede un selecteur css
+
+lorsqu'il trouve une directive il instancie la class et donne la main a cette instance
+
+3 type de directive
+
+	les composants 
+	les directive d'attributs (elements html des attributs des proprietés) des attributs dans les balises
+	html
+	les directive structurelles mise en forme des elements html dans la page en les retirant ajoutants les elements
+	et leurs fils
+	
+	
+	
+Pour ajouter une directive on doit utiliser angular cli 
+
+ng generate directive border-card

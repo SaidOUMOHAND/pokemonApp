@@ -10,8 +10,8 @@ au template
     Au lieu de capter les évenements angular fournit une annotation pour simplifier
 
 -->
-<h1 class="centre"> Welcome to  pokemons ! </h1>
- <!--<input type="number" (click)="selectPokemon($event)">  
+<h1 class="centre"> Welcome to pokemons ! </h1>
+<!--<input type="number" (click)="selectPokemon($event)">  
  Au lieu de capter les évenements angular fournit une annotation pour simplifier
  les chose comme suit 
  le # permet d'utiliser une variable dans le DOM 
@@ -20,16 +20,14 @@ au template
  pseudo evenment angular ( à voir) a 2:088:35
 
  -->
-  
+
 <!--
  <input #input
  (keyup)="selectPokemon(input.value)" 
  type="text"  >
 
 -->
- <input #input
- (keyup.enter)="selectPokemon(input.value)" 
- type="text"  >
+<input #input (keyup.enter)="selectPokemon(input.value)" type="text">
 
 <!--<p (click)="selectPokemon(pokemoneList[0])"> {{pokemoneList[0]}}.name</p> -->
 <!-- on peut afficher la valeur saisie ici <P > {{input.value}}</P> -->
@@ -52,58 +50,49 @@ au template
 common module
 
 -->
+<!--
+
+ 
 <div class="row">
 
     <div class="col s4" *ngFor="let pokemon of pokemoneList ">
-        
+
         <div class="row">
             <div class="col s6"> <img src="{{pokemon.picture}}">
             </div>
             <div class="col s6">
                 <div *ngFor="let item of pokemon | keyvalue">
-                    <p *ngIf="item.key!='picture' "  >
-                     
-                     {{item.key}}:{{item.value}}
-                    </p>  
-                   </div> 
+                    <p *ngIf="item.key!='picture' ">
+
+                        {{item.key}}:{{item.value}}
+                    </p>
+                </div>
             </div>
         </div>
-           
-           <!-- 
-  <div class="col s6"> 
-                
-
-                <div *ngFor="let item of pokemon | keyvalue">
-                   <p *ngIf="item.key!='picture' " && >
-                    
-                    {{item.key}}:{{item.value}}
-                   </p>  
-                  </div>
-
-            </div>
-
-           -->
-           
-                 
-                
-        
-        
-        
+    </div>
  
- 
-</div>
-
-
-
-
-
-<!--
-
-<p *ngFor="let pokemon of pokemoneList ">
-    {{ pokemon.name}}
-</p>
-
-
+    
 -->
 
- 
+<!-- Correction   -->
+
+
+<div class="container">
+    <div class="row">
+        <!--*  sur l'ecran moyen 4 si c small c 2-->
+        <div *ngFor="let pokemon of pokemoneList" class="col m4 s6">
+            <div class="card horizontal" pkmnBorderCard="red">
+                <div class="card-image">
+                    <img [src]="pokemon.picture" />
+                </div>
+
+
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p> {{ pokemon.name}} </p>
+                        <p> <small> {{ pokemon.created}}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
