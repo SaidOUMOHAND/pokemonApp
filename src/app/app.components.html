@@ -1,0 +1,109 @@
+<!--
+L'interpolation est une méthode pour lier de la class vers le template 
+Il existe d'autres méthodes pour pousser les valeurs de la class du composant
+au template
+    - propriete d'element
+    - propriete d'attribut
+    -class css
+    - proprieté css
+
+    Au lieu de capter les évenements angular fournit une annotation pour simplifier
+
+-->
+<h1 class="centre"> Welcome to  pokemons ! </h1>
+ <!--<input type="number" (click)="selectPokemon($event)">  
+ Au lieu de capter les évenements angular fournit une annotation pour simplifier
+ les chose comme suit 
+ le # permet d'utiliser une variable dans le DOM 
+ l'opérateur ? permet de dire si l'objet est null au lieu d'afficher une erreur
+ n'affiche rien
+ pseudo evenment angular ( à voir) a 2:088:35
+
+ -->
+  
+<!--
+ <input #input
+ (keyup)="selectPokemon(input.value)" 
+ type="text"  >
+
+-->
+ <input #input
+ (keyup.enter)="selectPokemon(input.value)" 
+ type="text"  >
+
+<!--<p (click)="selectPokemon(pokemoneList[0])"> {{pokemoneList[0]}}.name</p> -->
+<!-- on peut afficher la valeur saisie ici <P > {{input.value}}</P> -->
+<P *ngIf="pokemoneSelected"> Vous avez selectionnné le pokemone : {{pokemoneSelected?.name}}</P>
+<P *ngIf="!pokemoneSelected"> Aucun pokemone n'a été trouvé</P>
+<!--  
+<p> {{pokemoneList[0].name}}</p>
+<p> {{pokemoneList[1].name}}</p>
+<p> {{pokemoneList[2].name}}</p>
+<p> {{pokemoneList[3].name}}</p>
+<p> {{pokemoneList[4].name}}</p>
+<p> {{pokemoneList[5].name}}</p>
+<p> {{pokemoneList[6].name}}</p>
+<p> {{pokemoneList[7].name}}</p>
+<p> {{pokemoneList[8].name}}</p>
+<p> {{pokemoneList[9].name}}</p>
+<p> {{pokemoneList[10].name}}</p>-->
+
+<!-- ngif et ngfor sont ajouté par le module browser dans la racine
+common module
+
+-->
+<div class="row">
+
+    <div class="col s4" *ngFor="let pokemon of pokemoneList ">
+        
+        <div class="row">
+            <div class="col s6"> <img src="{{pokemon.picture}}">
+            </div>
+            <div class="col s6">
+                <div *ngFor="let item of pokemon | keyvalue">
+                    <p *ngIf="item.key!='picture' "  >
+                     
+                     {{item.key}}:{{item.value}}
+                    </p>  
+                   </div> 
+            </div>
+        </div>
+           
+           <!-- 
+  <div class="col s6"> 
+                
+
+                <div *ngFor="let item of pokemon | keyvalue">
+                   <p *ngIf="item.key!='picture' " && >
+                    
+                    {{item.key}}:{{item.value}}
+                   </p>  
+                  </div>
+
+            </div>
+
+           -->
+           
+                 
+                
+        
+        
+        
+ 
+ 
+</div>
+
+
+
+
+
+<!--
+
+<p *ngFor="let pokemon of pokemoneList ">
+    {{ pokemon.name}}
+</p>
+
+
+-->
+
+ 
