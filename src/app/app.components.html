@@ -10,7 +10,19 @@ au template
     Au lieu de capter les évenements angular fournit une annotation pour simplifier
 
 -->
-<h1 class="centre"> Welcome to pokemons ! </h1>
+ 
+<nav>
+<div class="nav-wraper teal" > 
+    <a href="#" class="brand-logo center">
+        Pokédex
+    </a>
+</div>
+
+</nav>
+
+
+<!-- router-outler -->
+<router-outlet></router-outlet>
 <!--<input type="number" (click)="selectPokemon($event)">  
  Au lieu de capter les évenements angular fournit une annotation pour simplifier
  les chose comme suit 
@@ -27,12 +39,14 @@ au template
  type="text"  >
 
 -->
-<input #input (keyup.enter)="selectPokemon(input.value)" type="text">
+ 
 
 <!--<p (click)="selectPokemon(pokemoneList[0])"> {{pokemoneList[0]}}.name</p> -->
 <!-- on peut afficher la valeur saisie ici <P > {{input.value}}</P> -->
+<!-- 
+<input #input (keyup.enter)="selectPokemon(input.value)" type="text">
 <P *ngIf="pokemoneSelected"> Vous avez selectionnné le pokemone : {{pokemoneSelected?.name}}</P>
-<P *ngIf="!pokemoneSelected"> Aucun pokemone n'a été trouvé</P>
+<P *ngIf="!pokemoneSelected"> Aucun pokemone n'a été trouvé</P> -->
 <!--  
 <p> {{pokemoneList[0].name}}</p>
 <p> {{pokemoneList[1].name}}</p>
@@ -75,17 +89,17 @@ common module
 -->
 
 <!-- Correction   -->
-
+<!--  
 
 <div class="container">
-    <div class="row">
+    <div class="row"> -->
         <!--*  sur l'ecran moyen 4 si c small c 2-->
-        <div *ngFor="let pokemon of pokemoneList" class="col m4 s6">
+        <!-- <div *ngFor="let pokemon of pokemoneList" class="col m4 s6">
             <div class="card horizontal" pkmnBorderCard="red">
                 <div class="card-image">
 
                     <img src={{pathImg}}{{pokemon.name}}.png />
-                </div>
+                </div> -->
 
                 <!-- Opérateur pipe pour modifier la structure d'affichage (pipe comme celui du shell ) 
 Il y a d'autres pipes qui sont disponibles dans les projets
@@ -95,8 +109,10 @@ On peut créer des pipes personalisées
 -   utiliser la commande suivante ng generate pipe pokemon-type-color
 -  Un fichier pokemon-type-color.ts a été crée.
  pipe est utilisé à l'intérieur des crochets
+ plutot que de definir  plusieurs transformation a des composants  il faut centraliser dans les pipes
+
 -->
-                <div class="card-stacked">
+         <!--       <div class="card-stacked">
                     <div class="card-content">
                         <p> {{ pokemon.name}} </p>
                         <p> <small> {{ pokemon.created | date:"dd/MM/yyyy"| uppercase}}</small></p>
@@ -107,4 +123,4 @@ On peut créer des pipes personalisées
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->  
