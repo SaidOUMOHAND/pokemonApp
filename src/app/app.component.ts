@@ -19,6 +19,7 @@ import {POKEMONS}  from './mock-pokemon-list';
 export class AppComponent implements OnInit{
   
   pokemoneList: Pokemon[]= POKEMONS;
+  pathImg:string="../assets/img/"
   pokemoneSelected : Pokemon | undefined;
 
   /* premiere appli 

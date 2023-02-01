@@ -9,7 +9,7 @@ export const POKEMONS: Pokemon[] = [
         name: "Bulbizarre",
         hp: 25,
         cp: 5,
-        picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
+        picture: "../assets/img/Bulbizarre-RFVF.png",
         types: ["Plante", "Poison"],
         created: new Date()
     },
@@ -105,7 +105,7 @@ export const POKEMONS: Pokemon[] = [
     },
     {
         id: 12,
-        name: "Groupix",
+        name: "Goupix",
         hp: 17,
         cp: 8,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/037.png",

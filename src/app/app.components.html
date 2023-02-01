@@ -83,14 +83,19 @@ common module
         <div *ngFor="let pokemon of pokemoneList" class="col m4 s6">
             <div class="card horizontal" pkmnBorderCard="red">
                 <div class="card-image">
-                    <img [src]="pokemon.picture" />
+              
+                    <img src= {{pathImg}}{{pokemon.name}}.png />
                 </div>
 
-
+<!-- Opérateur pipe pour modifier la structure d'affichage (pipe comme celui du shell ) 
+Il y a d'autres pipes qui sont disponibles dans les projets
+upercasepipe lowercasepipe currency pipe percentPipe
+documentation https://angular.io/guide/pipes
+-->
                 <div class="card-stacked">
                     <div class="card-content">
                         <p> {{ pokemon.name}} </p>
-                        <p> <small> {{ pokemon.created}}</small></p>
+                        <p> <small> {{ pokemon.created | date:"dd/MM/yyyy"| uppercase}}</small></p>
                     </div>
                 </div>
             </div>
