@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetailPokemonComponent } from './detail-pokemon/detail-pokemon.component';
-import { ListPokemonComponent } from './list-pokemon/list-pokemon.component';
-import { POKEMONS } from './mock-pokemon-list';
+ 
+ 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 /**
  * Route pour declarer les routes pour les composants
@@ -20,8 +19,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
  * du coup la redirection ne sera jamais faite vers la bonne url
  */
 const routes: Routes = [
-  {path:'pokemons', component : ListPokemonComponent},
-  {path:'pokemons/:id', component : DetailPokemonComponent},
+ 
+  
   {path:'', redirectTo : 'pokemons' , pathMatch: 'full'},
   {path: '**',   component : PageNotFoundComponent}
 ];  

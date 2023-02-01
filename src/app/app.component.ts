@@ -1,7 +1,7 @@
 //import { Component,OnInit } from '@angular/core';
 import { Component } from '@angular/core';
-import { Pokemon } from './pokemon';
-import {POKEMONS}  from './mock-pokemon-list';
+import { Pokemon } from './pokemon/pokemon';
+import {POKEMONS}  from './pokemon/mock-pokemon-list';
 /**
  * Les templates contiennent les vues des composants
  */
