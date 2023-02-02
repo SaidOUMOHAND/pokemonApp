@@ -21,3 +21,9 @@ lorsqu'il trouve une directive il instancie la class et donne la main a cette in
 Pour ajouter une directive on doit utiliser angular cli 
 
 ng generate directive border-card
+ng generate service pokemon/pokemon 
+
+--dry-run  Pour tester la création un service
+ 
+ --dry-run veut dire simplement tester pour voir le résultat 
+ 

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit} from '@angular/core';
 import { Pokemon } from '../pokemon';
-import {POKEMONS}  from '../mock-pokemon-list';
 import { Router } from '@angular/router';
+import { PokemonService } from '../pokemon.service';
 /**
  * Génération du composant avec la commande :
  *  ng generate component list-pokemon --inline-template=false
@@ -11,12 +11,18 @@ import { Router } from '@angular/router';
   selector: 'app-list-pokemon',
   templateUrl: './list-pokemon.component.html',
   styles: [
-  ]
+
+  ],
+  /**
+   * On declare ici le service si on le veut que dans le scope du composant
+   * providers: [PokemonService]
+   * */
 })
-export class ListPokemonComponent {
-  pokemoneList: Pokemon[]= POKEMONS;
+export class ListPokemonComponent  implements OnInit{
+  pokemoneList: Pokemon[] ;
   pathImg:string="../assets/img/"
-constructor( private router : Router) {
+constructor( private router : Router, 
+  private pokemonService : PokemonService) {
  
 };
 goToPokemonDetail(pokemon: Pokemon){
@@ -24,5 +30,8 @@ goToPokemonDetail(pokemon: Pokemon){
   this.router.navigate(['/pokemons',pokemon.id])
 }
 
-
+ngOnInit(): void {
+  
+  this.pokemoneList=this.pokemonService.getPokemonList();
+}
 }

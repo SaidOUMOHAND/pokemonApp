@@ -1,7 +1,8 @@
 import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { POKEMONS } from '../mock-pokemon-list';
+ 
 import { Pokemon } from '../pokemon';
+import { PokemonService } from '../pokemon.service';
 /**
  * On veut récupérer l'id de l'url pour cela il faut utiliser le 
  * service ActivateRoute d'angular pour récupérer l'id 
@@ -19,12 +20,13 @@ export class DetailPokemonComponent  implements OnInit {
 
   pathImg:string="../assets/img/";
 
-    constructor( private route: ActivatedRoute,private router:Router) {
+    constructor( private route: ActivatedRoute,private router:Router
+      ,private pokemonService : PokemonService) {
       
     }
   
   ngOnInit( ) {
-    this.pokemonList= POKEMONS;
+     
     /**
      * la  ligne qui permet de récupérer l'id depuis l'url 
      * 
@@ -32,7 +34,8 @@ export class DetailPokemonComponent  implements OnInit {
 
     const pokemonId: string|null =  this.route.snapshot.paramMap.get('id');
     if( pokemonId){
-      this.pokemon = this.pokemonList.find(pokemon => pokemon.id == +pokemonId);
+     // this.pokemon = this.pokemonList.find(pokemon => pokemon.id == +pokemonId);
+     this.pokemon =this.pokemonService.getPokemonById(+pokemonId);
     } else {
       this.pokemon= undefined;
     }
