@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,9 +25,21 @@ import { PokemonModule } from './pokemon/pokemon.module';
    * l'ordre est important si on charge les routes racine delcaré dans app-routing.module.ts alors 
    * ca ne marche pas normalement . Il faut déclarer tout d'abord le module  pokemone
    */
+
+  /**
+   * MORALITE :
+   *  - Tout d'abord lorsqu'on lance angular la premier module qui est chargé est le module AppComponent
+   *    Ensuite il lance les modules qui lui sont liés BrowserModule puis PokemonModule 
+   *    Dans PokemonModule on a déclaré les routes (Navigation) 
+   *    Puis angular lance le module app-routing.modules dans lequel on a définit l'url si on charge 
+   *    un pokemon avec un id inexhistant ou bien si on invoque une url qui n'est pas gérée par l'application
+   *    Remarque : on peut déclarer un module pour le routing app-routing.module.ts ou bien declarer les routes
+   *    dans le module?
+   */
   imports: [
     BrowserModule,
-     PokemonModule,
+    FormsModule,
+    PokemonModule,
     AppRoutingModule,
      
   ],

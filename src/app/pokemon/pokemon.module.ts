@@ -8,6 +8,8 @@ import { DetailPokemonComponent } from './detail-pokemon/detail-pokemon.componen
  
 import { RouterModule, Routes } from '@angular/router';
 import { PokemonService } from './pokemon.service';
+import { FormsModule } from '@angular/forms';
+import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
 
 
 const pokemonRoutes: Routes = [
@@ -23,14 +25,19 @@ const pokemonRoutes: Routes = [
     DetailPokemonComponent,
     BorderCardDirective,
     PokemonTypeColorPipe,
+    PokemonFormComponent
     
  
   ],
   /**
    * On fait forchild au lieu de
+   * 
+   * Il faut ajouter le modules FormsModule dans les deux modules
+   * Pour créer des formulaires
    */
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule.forChild(pokemonRoutes)
     
   ],

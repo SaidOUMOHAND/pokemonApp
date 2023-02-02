@@ -27,3 +27,25 @@ ng generate service pokemon/pokemon
  
  --dry-run veut dire simplement tester pour voir le résultat 
  
+ Pour creer un formulaire  il y a deux modules
+ forms modules
+ developpe dans le template  plusieurs pour debuter
+ 
+ reactive forms module 
+ coté composants +
+ 
+ ngForm  nModel sont imprtant dans forms modules
+ creeer une instance formGroup ( elle permet de savoir si il y a erreur et lorsqu'il est soumis)
+ NgModel elle appliquée sur le champs d'un formaire 
+ crée une instance pour  formControl traquer la valeur saisie  interaction utilisateur.
+ encapsuler l'état donnée d'un champs
+ elle est définit avec un nom
+ s'occuper d'une mettre une liaison bi directionnelle
+ Ajouter retirer des class specifique sur un champs
+pour générer un composant avec deux fichiers html et class séparée
+ng generate component pokemon/pokemon-form --inline-template=false 
+ 
+ 
+ 
+ 
+ 
