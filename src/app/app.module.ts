@@ -6,7 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PokemonModule } from './pokemon/pokemon.module';
-
+/**
+ * Import de http qui sera utilisé partout dans le code
+ */
+import {HttpClientModule} from '@angular/common/http'
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import {InMemoryDataService} from './in-memory-data.service'
 /**
  * declarations on peut déclarer les directives les pipes et les composants;
  *  Exports sous-ensemble de classes de vues à exporter
@@ -35,10 +40,17 @@ import { PokemonModule } from './pokemon/pokemon.module';
    *    un pokemon avec un id inexhistant ou bien si on invoque une url qui n'est pas gérée par l'application
    *    Remarque : on peut déclarer un module pour le routing app-routing.module.ts ou bien declarer les routes
    *    dans le module?
+   * /**
+   * Import du module  http qui sera utilisé partout dans le code
+   * Pour pouvoir simuler l'API Rest qui vient du Back End + BD angular permet de simuler pour avoir un code fonctionnel
+   *    npm install angular-in-memory-web-api --save-dev
+   * dataEncapsulation POUR éviter l'encapsulation des données
    */
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation :false}),
     PokemonModule,
     AppRoutingModule,
      

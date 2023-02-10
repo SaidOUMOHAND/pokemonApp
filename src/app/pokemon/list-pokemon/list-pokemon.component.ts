@@ -29,9 +29,12 @@ goToPokemonDetail(pokemon: Pokemon){
 
   this.router.navigate(['/pokemons',pokemon.id])
 }
-
+/**
+ * this.pokemonService.getPokemonList() represente observable
+ */
 ngOnInit(): void {
-  
-  this.pokemoneList=this.pokemonService.getPokemonList();
+ 
+  this.pokemonService.getPokemonList()
+  .subscribe(pokemoneList => this.pokemoneList = pokemoneList);
 }
 }

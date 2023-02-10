@@ -1,6 +1,6 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
- 
+
 import { Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
 /**
@@ -14,38 +14,58 @@ import { PokemonService } from '../pokemon.service';
   styles: [
   ]
 })
-export class DetailPokemonComponent  implements OnInit {
-  pokemonList:  Pokemon[];
-  pokemon : Pokemon| undefined;
+export class DetailPokemonComponent implements OnInit {
+  pokemonList: Pokemon[];
+  pokemon: Pokemon | undefined;
 
-  pathImg:string="../assets/img/";
+  pathImg: string = "../assets/img/";
 
-    constructor( private route: ActivatedRoute,private router:Router
-      ,private pokemonService : PokemonService) {
-      
-    }
-  
-  ngOnInit( ) {
-     
+  constructor(private route: ActivatedRoute, private router: Router
+    , private pokemonService: PokemonService) {
+
+  }
+
+  ngOnInit() {
+
     /**
      * la  ligne qui permet de récupérer l'id depuis l'url 
      * 
-     *  */  
+     *  */
 
-    const pokemonId: string|null =  this.route.snapshot.paramMap.get('id');
-    if( pokemonId){
-     // this.pokemon = this.pokemonList.find(pokemon => pokemon.id == +pokemonId);
-     this.pokemon =this.pokemonService.getPokemonById(+pokemonId);
+    const pokemonId: string | null = this.route.snapshot.paramMap.get('id');
+    if (pokemonId) {
+      // this.pokemon = this.pokemonList.find(pokemon => pokemon.id == +pokemonId);
+
+      this.pokemonService.getPokemonById(+pokemonId)
+        .subscribe(pokemone => this.pokemon = pokemone);
+
     } else {
-      this.pokemon= undefined;
+      this.pokemon = undefined;
     }
-    
   }
-  goToPokemonLisT(){
+
+
+  goToPokemonLisT() {
     this.router.navigate(['/pokemons']);
 
   }
-    gotToEditPokemon(pokemon:Pokemon){
-      this.router.navigate(['edit/pokemon',pokemon.id] );
-    }
+
+  gotToEditPokemon(pokemon: Pokemon) {
+    this.router.navigate(['edit/pokemon', pokemon.id]);
+  }
+
+  /**
+   * Delete pokemon
+   *  .subscribe(() =>this.goToPokemonLisT());
+   * () =>this.goToPokemonLisT()
+   *  function ( ) {
+   *  return this.goToPokemonLisT();
+   * }
+   */
+
+  deletePokemon(pokemon:Pokemon){
+
+    this.pokemonService.deletePokemonById(pokemon.id)
+    .subscribe(() =>this.goToPokemonLisT());
+  }
 }
